@@ -199,7 +199,7 @@ public class StructBrigCommand extends Structure {
             brigCommand.build();
         } else {
             // Run later to prevent reload issues
-            Bukkit.getScheduler().runTaskLater(PLUGIN, brigCommand::build, 0);
+            Bukkit.getGlobalRegionScheduler().run(PLUGIN, task -> brigCommand.build());
         }
 
         getParser().deleteCurrentEvent();
